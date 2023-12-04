@@ -25,17 +25,20 @@ public class GameController {
         this.gameService = gameService;
     }
 
+    // Handles the request to add a game based on the provided AddGameDto.
     @PostMapping("/api/addGame")
     public ResponseEntity<String> addGame(@RequestBody AddGameDto addGameDto)
             throws UserNotAuthenticatedException, PlayerNotFoundException, GameNotFoundException {
         return ResponseEntity.ok(gameService.addGame(addGameDto));
     }
 
+    // Handles the request to get all games and returns a response with a list of GameDto objects.
     @GetMapping("/api/games")
     public ResponseEntity<List<GameDto>> getGames() {
         return ResponseEntity.ok(gameService.getAllGames());
     }
 
+    // Handles the request to get the games associated with the authenticated user and returns a response with a list of GameDto objects.
     @GetMapping("/api/myGames")
     public ResponseEntity<List<GameDto>> myGames() throws UserNotAuthenticatedException {
         return ResponseEntity.ok(gameService.myGames());

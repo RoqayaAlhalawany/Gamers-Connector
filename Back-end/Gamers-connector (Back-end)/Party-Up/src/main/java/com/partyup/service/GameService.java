@@ -41,6 +41,7 @@ public class GameService {
         this.authService = authService;
     }
 
+    // Adds a game to the player's collection of games.
     public String addGame(AddGameDto addGameDto)
             throws UserNotAuthenticatedException, GameNotFoundException {
         Player player = authService.authenticate();
@@ -57,7 +58,7 @@ public class GameService {
         playerRepository.save(player);
         return "Game Added Successfully";
     }
-
+ // Retrieves a game by its name.
     public Game getGameBy(String name) throws GameNotFoundException {
         Optional<Game> game = gameRepository.findByName(name);
         if (game.isEmpty()) {
@@ -65,7 +66,7 @@ public class GameService {
         }
         return game.get();
     }
-
+ // Retrieves all games.
     public List<GameDto> getAllGames() {
         List<Game> games = gameRepository.findAll();
         List<GameDto> gameDtos = new ArrayList<>();
@@ -75,6 +76,7 @@ public class GameService {
         return gameDtos;
     }
 
+    // Retrieves the games associated with the authenticated player.
     public List<GameDto> myGames() throws UserNotAuthenticatedException {
         Player player = authService.authenticate();
         List<GameDto> gameDtos = new ArrayList<>();

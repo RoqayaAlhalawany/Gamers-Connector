@@ -8,30 +8,33 @@
 <div class="container">
   <table class="table table-striped table-dark">
     <thead>
-    <tr>
-      <th scope="col">Game</th>
-      <th scope="col">Handle</th>
-    </tr>
+      <tr>
+        <th scope="col">Game</th>
+        <th scope="col">Handle</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let playerHandle of playerDetails.handles">
-      <td>{{ playerHandle.game }}</td>
-      <td>{{ playerHandle.handle }}</td>
-    </tr>
+      <!-- Loop through player's handles -->
+      <tr *ngFor="let playerHandle of playerDetails.handles">
+        <td>{{ playerHandle.game }}</td> <!-- Display game name -->
+        <td>{{ playerHandle.handle }}</td> <!-- Display handle -->
+      </tr>
     </tbody>
   </table>
 </div>
 
 
 <div class="w-100 text-center my-5">
-  <h2>A form to add new games and to handle your account!</h2>
+  <h2>A form to add new games and handles to your account!</h2>
   <form [formGroup]="addGameWithHandle" class="w-100 container" (ngSubmit)="sendPlayersGameWithHandle()">
     <div>
-      <select formControlName='gameName' class="form-select-lg" >
-        <option class=".option" *ngFor="let gm of gamesListDto"  value="{{gm.name}}">{{gm.name}}</option>
+      <!-- Dropdown to select game -->
+      <select formControlName='gameName' class="form-select-lg">
+        <option class=".option" *ngFor="let gm of gamesListDto" value="{{gm.name}}">{{gm.name}}</option>
       </select>
     </div>
     <div class="form-group my-2">
+      <!-- Text input to enter handle -->
       <input formControlName="handle" type="text" class="" name="handle" placeholder="specify handle"/>
     </div>
     <button [disabled]="addGameWithHandle.invalid" class="btn btn-success mx-2" type="submit">Confirm</button>
@@ -40,6 +43,4 @@
       <p>{{errorMessage}}</p>
     </div>
   </form>
-
-
 </div>

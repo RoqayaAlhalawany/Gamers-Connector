@@ -23,13 +23,14 @@ public class PersonalityTestController {
     @Autowired
     private PersonalityTestService personalityTestService;
 
-
+    // Handles the request to get all personality test questions and returns a response with a list of QuestionDto objects.
     @GetMapping
     public ResponseEntity<List<QuestionDto>> getQuestions(){
         List<QuestionDto> questionList = personalityTestService.getAllQuestions();
         return ResponseEntity.ok().body(questionList);
     }
 
+    // Handles the request to save answers for the personality test for a specific player based on the provided username and answerDto.
     @PostMapping("/{username}")
     public ResponseEntity<String> saveAnswers(@PathVariable String username, @RequestBody List<AnswerDto> answerDto)
             throws PlayerNotFoundException {

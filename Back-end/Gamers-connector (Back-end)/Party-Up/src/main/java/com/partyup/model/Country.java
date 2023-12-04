@@ -12,9 +12,13 @@ public class Country implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    //Gets the name of the country.
+
     public String getName() {
         return name;
     }
+
+    //Sets the name of the country.
 
     public void setName(String name) {
         this.name = name;

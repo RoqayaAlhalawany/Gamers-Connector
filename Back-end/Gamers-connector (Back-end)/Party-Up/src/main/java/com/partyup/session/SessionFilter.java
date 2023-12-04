@@ -34,19 +34,25 @@ public class SessionFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
         final String sessionId = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (sessionId == null || sessionId.length() == 0) {
+            // No session ID provided, continue with the filter chain
             filterChain.doFilter(request, response);
             return;
         }
         final String username = sessionRegistry.getUsernameForSession(sessionId);
         if (username == null) {
+            // Session ID is invalid or expired, continue with the filter chain
             filterChain.doFilter(request, response);
             return;
         }
+        // Session ID is valid, retrieve the player details
         Player player = playerDetailsService.loadUserByUsername(username);
+        // Create an authentication token with the player details
         UsernamePasswordAuthenticationToken auth =
                 new UsernamePasswordAuthenticationToken(player, null, player.getAuthorities());
         auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        // Set the authentication in the security context
         SecurityContextHolder.getContext().setAuthentication(auth);
+        // Continue with the filter chain
         filterChain.doFilter(request, response);
     }
 }

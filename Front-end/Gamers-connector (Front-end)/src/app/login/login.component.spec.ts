@@ -14,12 +14,16 @@ describe('LoginComponent', () => {
   });
 
   beforeEach(() => {
+    // Create an instance of the component
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+
+    // Trigger change detection to initialize the component
     fixture.detectChanges();
   });
 
   it('should create', () => {
+    // Assert that the component is successfully created
     expect(component).toBeTruthy();
   });
 });

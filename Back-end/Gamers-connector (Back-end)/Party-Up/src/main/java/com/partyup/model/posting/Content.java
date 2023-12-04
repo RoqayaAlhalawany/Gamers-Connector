@@ -1,11 +1,3 @@
-package com.partyup.model.posting;
-
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-import java.util.Arrays;
-import java.util.Objects;
-
 @Entity
 @Table(name = "file")
 public class Content {
@@ -13,17 +5,22 @@ public class Content {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
+
 	@Column(name = "name")
 	private String name;
+
 	@Column(name = "type")
 	private String type;
+
 	@Column(name = "size")
 	private Long size;
+
 	@Lob
 	@Column(name = "data", nullable = false)
 	private byte[] file;
 
 	public Content() {
+		// Default constructor with empty values
 		this.name = "";
 		this.type = "";
 		this.size = 0L;
@@ -31,6 +28,7 @@ public class Content {
 	}
 
 	public Content(String name, String type, byte[] file) {
+		// Constructor with provided values
 		this.name = name;
 		this.type = type;
 		this.file = file;
@@ -75,6 +73,7 @@ public class Content {
 
 	@Override
 	public boolean equals(Object other) {
+		// Check if the current instance is equal to the other instance based on specific properties
 		if (this == other) return true;
 		if (other == null || this.getClass() != other.getClass()) return false;
 		Content otherContent = (Content) other;
@@ -86,6 +85,7 @@ public class Content {
 
 	@Override
 	public int hashCode() {
+		// Generate a hash code based on the properties of the instance
 		return super.hashCode();
 	}
 }

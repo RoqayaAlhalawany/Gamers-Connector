@@ -11,6 +11,7 @@ import java.util.UUID;
 public class InMemorySessionRegistry {
     private static final HashMap<String, String > SESSIONS = new HashMap<>();
 
+    // Register a session for a specific username.
     public String registerSession(final String username) {
         if (username == null) {
             throw new RuntimeException("Username needs to be provided");
@@ -20,10 +21,12 @@ public class InMemorySessionRegistry {
         return sessionId;
     }
 
+    // Retrieve the username associated with a session ID.
     public String getUsernameForSession(final String sessionId) {
         return SESSIONS.get(sessionId);
     }
 
+    // Generate a unique session ID using Base64 encoding.
     private String generateSessionId() {
         return new String(
                 Base64.getEncoder().encode(UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8))

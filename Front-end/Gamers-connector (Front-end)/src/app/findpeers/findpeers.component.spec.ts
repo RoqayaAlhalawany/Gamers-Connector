@@ -7,19 +7,23 @@ describe('FindpeersComponent', () => {
   let fixture: ComponentFixture<FindpeersComponent>;
 
   beforeEach(async () => {
+    // Configure the testing module
     await TestBed.configureTestingModule({
-      declarations: [ FindpeersComponent ]
+      declarations: [ FindpeersComponent ]  // Declare the component being tested
     })
-    .compileComponents();
+    .compileComponents();  // Compile the component's template and CSS
   });
 
   beforeEach(() => {
+    // Create an instance of the component and fixture
     fixture = TestBed.createComponent(FindpeersComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    fixture.detectChanges();  // Trigger change detection and update the component
   });
 
   it('should create', () => {
+    // Verify that the component is created successfully
     expect(component).toBeTruthy();
   });
 });

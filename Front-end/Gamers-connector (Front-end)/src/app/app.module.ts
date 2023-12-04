@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -13,18 +12,20 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PersonalityTestComponent } from './personality-test/personality-test.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { FeedComponent } from './feed/feed.component'
-import {InfiniteScrollModule} from "ngx-infinite-scroll";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FeedComponent } from './feed/feed.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
-import {RequestInterceptor} from "./request.interceptor";
+import { RequestInterceptor } from './request.interceptor';
 import { AddGameComponent } from './add-game/add-game.component';
 import { OthersProfileComponent } from './others-profile/others-profile.component';
 import { MyPeersComponent } from './my-peers/my-peers.component';
 import { ReviewPeerComponent } from './review-peer/review-peer.component';
 import { IfLoggedInGuard } from './if-logged-in.guard';
+
 @NgModule({
   declarations: [
+    // List of component declarations
     AppComponent,
     RegisterComponent,
     LoginComponent,
@@ -41,16 +42,20 @@ import { IfLoggedInGuard } from './if-logged-in.guard';
     OthersProfileComponent,
     MyPeersComponent,
     ReviewPeerComponent,
-
   ],
   imports: [
+    // List of module imports
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
-  providers: [IfLoggedInGuard, {provide : HTTP_INTERCEPTORS , useClass : RequestInterceptor , multi : true}],
-  bootstrap: [AppComponent]
+  providers: [
+    // List of service providers and interceptors
+    IfLoggedInGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent] // The root component to be bootstrapped
 })
-export class AppModule { }
+export class AppModule {}

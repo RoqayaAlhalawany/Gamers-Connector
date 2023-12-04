@@ -23,6 +23,7 @@ public class PostContentService {
 	@Autowired
 	private ContentRepository postContentRepo;
 
+	// Saves the uploaded contents and returns their metadata.
 	public List<ContentData> saveContents(List<MultipartFile> files, UriComponentsBuilder uriBuilder) throws UploadFailedException {
 		List<Content> contents = new ArrayList<>();
 		List<ContentData> contentsData = new ArrayList<>();
@@ -65,6 +66,7 @@ public class PostContentService {
 		}
 	}
 
+	// Retrieves the content by its ID.
 	public Content getContentOf(String id) throws FileNotExistException {
 		Optional<Content> content = postContentRepo.findById(id);
 		if (content.isEmpty()) throw new FileNotExistException();

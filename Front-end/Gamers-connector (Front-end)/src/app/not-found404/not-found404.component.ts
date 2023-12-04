@@ -10,6 +10,8 @@ export class NotFound404Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // ngOnInit is a lifecycle hook that is called after the component is initialized
+    // It is a good place to perform any initialization logic
   }
 
 }

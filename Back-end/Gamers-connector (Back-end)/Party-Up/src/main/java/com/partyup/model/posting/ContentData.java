@@ -14,18 +14,20 @@ public class ContentData {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
+
 	private String type;
 	private long size;
-
 	private URL url;
 
 	public ContentData() {
+		// Default constructor with empty values
 		this.type = "";
 		this.size = 0L;
 		this.url = null;
 	}
 
 	public ContentData(String type, long size, URL url) {
+		// Constructor with provided values
 		this.type = type;
 		this.size = size;
 		this.url = url;
@@ -49,6 +51,7 @@ public class ContentData {
 
 	@Override
 	public boolean equals(Object o) {
+		// Check if the current instance is equal to the other instance based on specific properties
 		if (this == o) return true;
 		if (o == null || this.getClass() != o.getClass()) return false;
 		ContentData other = (ContentData) o;
@@ -60,7 +63,7 @@ public class ContentData {
 
 	@Override
 	public int hashCode() {
+		// Generate a hash code based on the properties of the instance
 		return super.hashCode();
 	}
 }
-

@@ -58,22 +58,6 @@ public class Player implements UserDetails, Serializable {
     @ManyToMany
     private List<Player> reviewers;
 
-    public ContentData getProfilePicture() {
-        return profilePicture;
-    }
-
-    public void setProfilePicture(ContentData profilePicture) {
-        this.profilePicture = profilePicture;
-    }
-
-    public List<PeerRequest> getPeerRequests() {
-        return peerRequests;
-    }
-
-    public void setPeerRequests(List<PeerRequest> peerRequests) {
-        this.peerRequests = peerRequests;
-    }
-
     public Long getId() {
         return id;
     }
@@ -86,26 +70,6 @@ public class Player implements UserDetails, Serializable {
         return username;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -116,11 +80,6 @@ public class Player implements UserDetails, Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("USER"));
     }
 
     public String getPassword() {
@@ -147,12 +106,20 @@ public class Player implements UserDetails, Serializable {
         this.lastName = lastName;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
     public List<Rate> getRates() {
         return rates;
     }
 
-    public void setRates(List<Rate> userRate) {
-        this.rates = userRate;
+    public void setRates(List<Rate> rates) {
+        this.rates = rates;
     }
 
     public List<Handle> getHandles() {
@@ -163,36 +130,6 @@ public class Player implements UserDetails, Serializable {
         this.handles = handles;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void addRole(Role role) {
-        if (roles == null) roles = new HashSet<>();
-        roles.add(role);
-    }
-
-    public boolean removeRole(Role role) {
-        return roles.remove(role);
-    }
-
-    public void setRoles(Set<Role> role) {
-        this.roles = role;
-    }
-
-    public void addHandle(Handle handle) {
-        if (handles == null) handles = new ArrayList<>();
-        handles.add(handle);
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
     public Set<Player> getPeers() {
         return peers;
     }
@@ -201,26 +138,28 @@ public class Player implements UserDetails, Serializable {
         this.peers = peers;
     }
 
-    public boolean hasPeer(Player player) {
-        return peers.contains(player);
+    public List<PeerRequest> getPeerRequests() {
+        return peerRequests;
     }
 
-    public void addPeerRequest(PeerRequest peerRequest) {
-        if (peerRequests == null) peerRequests = new ArrayList<>();
-        peerRequests.add(peerRequest);
+    public void setPeerRequests(List<PeerRequest> peerRequests) {
+        this.peerRequests = peerRequests;
     }
 
-    public void addPeer(Player player) {
-        if (peers == null) peers = new HashSet<>();
-        peers.add(player);
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public String getDiscordTag() {
-        return discordTag;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
-    public void setDiscordTag(String discordTag) {
-        this.discordTag = discordTag;
+    public ContentData getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(ContentData profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     public List<Player> getReviewers() {
@@ -231,8 +170,88 @@ public class Player implements UserDetails, Serializable {
         this.reviewers = reviewers;
     }
 
+    public String getDiscordTag() {
+        return discordTag;
+    }
+
+    public void setDiscordTag(String discordTag) {
+        this.discordTag = discordTag;
+    }
+
+    // UserDetails interface methods
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Return a single authority "USER"
+        return List.of(new SimpleGrantedAuthority("USER"));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // Return true as the account is not expired
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // Return true as the account is not locked
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // Return true as the credentials are not expired
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // Return true as the account is enabled
+        return true;
+    }
+
+    // Helper methods
+
+    public void addRole(Role role) {
+        if (roles == null) {
+            roles = new HashSet<>();
+        }
+        roles.add(role);
+    }
+
+    public boolean removeRole(Role role) {
+        return roles != null && roles.remove(role);
+    }
+
+    public void addHandle(Handle handle) {
+        if (handles == null) {
+            handles = new ArrayList<>();
+        }
+        handles.add(handle);
+    }
+
+    public boolean hasPeer(Player player) {
+        return peers != null && peers.contains(player);
+    }
+
+    public void addPeerRequest(PeerRequest peerRequest) {
+        if (peerRequests == null) {
+            peerRequests = new ArrayList<>();
+        }
+        peerRequests.add(peerRequest);
+    }
+
+    public void addPeer(Player player) {
+        if (peers == null) {
+            peers = new HashSet<>();
+        }
+        peers.add(player);
+    }
+
     public void addReviewer(Player player) {
-        if (reviewers == null) reviewers = new ArrayList<>();
+        if (reviewers == null) {
+            reviewers = new ArrayList<>();
+        }
         reviewers.add(player);
     }
 }

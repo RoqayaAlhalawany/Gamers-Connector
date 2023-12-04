@@ -17,13 +17,13 @@ import java.util.Optional;
 @RequestMapping("/api/follow")
 public class FollowingController {
 
-
 	@Autowired
 	PlayerRepository playerRepo;
 
 	@Autowired
 	FollowService followService;
 
+	// Handles the request to follow a player with the provided followeeUsername.
 	@PostMapping("/{followeeUsername}")
 	public ResponseEntity<String> follow(@PathVariable String followeeUsername) {
 		String followerUsername = getUserName();
@@ -39,12 +39,13 @@ public class FollowingController {
 		return ResponseEntity.status(HttpStatus.CREATED).body("Followed");
 	}
 
-
+	// Handles the exception when a UsernameNotFoundException occurs and returns a response with a FORBIDDEN status code.
 	@ExceptionHandler(UsernameNotFoundException.class)
 	public ResponseEntity<UsernameNotFoundException> sendForbidden(UsernameNotFoundException e) {
 		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e);
 	}
 
+	// Retrieves the username of the currently logged-in user.
 	private String getUserName() {
 		Object userSessionData = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username;

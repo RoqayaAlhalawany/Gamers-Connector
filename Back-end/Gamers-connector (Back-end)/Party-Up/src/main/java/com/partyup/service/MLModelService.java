@@ -24,6 +24,7 @@ public class MLModelService {
         this.playerRepository = playerRepository;
     }
 
+    // Retrieves a list of suggested profile tokens for a given player and game.
     public List<ProfileToken> getSuggestedProfileTokens(Player player, Game game) {
         String url = System.getenv("ML_URL");
         String findPeersUri = UriComponentsBuilder.fromHttpUrl(url)
@@ -35,6 +36,7 @@ public class MLModelService {
         return getProfileTokensOf(Arrays.asList(Objects.requireNonNull(suggestedPeerIds.getBody())));
     }
 
+    // Retrieves profile tokens for the given list of suggested peer IDs.
     private List<ProfileToken> getProfileTokensOf(List<SuggestedPeerId> suggestedPeerIds) {
         List<ProfileToken> profileTokens = new ArrayList<>();
         for (SuggestedPeerId peerId : suggestedPeerIds) {

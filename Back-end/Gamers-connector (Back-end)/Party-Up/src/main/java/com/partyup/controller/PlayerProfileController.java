@@ -31,12 +31,14 @@ public class PlayerProfileController {
 		this.playerProfileService = playerProfileService;
 	}
 
+	// Handles the request to get the player's own profile and returns a response with the player's profile information.
 	@GetMapping
 	public ResponseEntity<ProfileDto> getPlayerProfile()
 			throws UserNotAuthenticatedException, PlayerNotFoundException {
 		return ResponseEntity.ok().body(playerProfileService.getPlayerProfile());
 	}
 
+	// Handles the request to get the profile of another player based on the provided username and returns a response with the player's profile information.
 	@GetMapping("/{username}")
 	public ResponseEntity<ProfileDto> getOtherPlayerProfile(@PathVariable String username)
 			throws PlayerNotFoundException, UserNotAuthenticatedException {
@@ -45,11 +47,13 @@ public class PlayerProfileController {
 		return ResponseEntity.ok().body(playerProfileService.getOtherPlayerProfile(username));
 	}
 
+	// Handles the request to edit the player's own profile based on the provided SignUpDto and returns a response indicating the successful profile edit.
 	@PutMapping()
 	public ResponseEntity<String> editProfile(@RequestBody SignUpDto signUpDto) throws UserNotAuthenticatedException {
 		return ResponseEntity.ok().body(playerProfileService.editProfile(signUpDto));
 	}
 
+	// Handles the request to edit the player's profile picture based on the provided picture file and returns a response indicating the successful profile picture update.
 	@PutMapping(value = "profilePic")
 	public ResponseEntity<String> editProfilePic(MultipartFile picture, UriComponentsBuilder uriComponentsBuilder)
 			throws UploadFailedException {
@@ -60,7 +64,6 @@ public class PlayerProfileController {
 		uriComponentsBuilder.scheme(currentURI.getScheme()).host(currentURI.getHost()).path("/api/file");
 		playerProfileService.updateProfilePic(picture, uriComponentsBuilder);
 		return ResponseEntity.accepted().body("Profile Pic updated");
-
 	}
 
 	@ExceptionHandler(PlayerNotFoundException.class)

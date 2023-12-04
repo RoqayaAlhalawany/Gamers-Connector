@@ -2,9 +2,8 @@ package com.partyup.payload;
 
 public class LoginDto {
 
-    private String usernameOrEmail;
-
-    private String password;
+    private String usernameOrEmail;  // The username or email entered for login
+    private String password;  // The password entered for login
 
     public String getUsernameOrEmail() {
         return usernameOrEmail;

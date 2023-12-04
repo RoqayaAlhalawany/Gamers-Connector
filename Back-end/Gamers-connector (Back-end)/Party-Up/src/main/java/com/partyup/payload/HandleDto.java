@@ -4,10 +4,10 @@ import com.partyup.model.Handle;
 
 public class HandleDto {
 
-    private Long id;
-    private String handle;
-    private Long gameId;
-    private String game;
+    private Long id;  // The ID of the handle
+    private String handle;  // The handle name
+    private Long gameId;  // The ID of the associated game
+    private String game;  // The name of the associated game
 
     public HandleDto(Handle handle) {
         this.id = handle.getId();
@@ -15,7 +15,6 @@ public class HandleDto {
         this.gameId = handle.getGame().getId();
         this.game = handle.getGame().getName();
     }
-
 
     public Long getId() {
         return id;

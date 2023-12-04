@@ -1,15 +1,21 @@
-.container{
+/* Positioning and spacing */
+.container {
   position: relative;
   top: 15vh;
   margin-bottom: 17vh;
 }
-.discordTagColour{
+
+/* Styling for Discord tag */
+.discordTagColour {
   color: #573391;
 }
-.regionColour{
+
+/* Styling for region */
+.regionColour {
   color: red;
 }
 
+/* Reset styles for form elements */
 button,
 input,
 select,
@@ -22,64 +28,55 @@ textarea {
   color: #fff;
 }
 
+/* Reset styles for Firefox focus */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
+/* Styling for textarea */
 textarea {
   overflow: auto;
   vertical-align: top;
   resize: none;
 }
 
-[placeholder]::-webkit-input-placeholder { color: rgba(255,255,255,.8); }
-[placeholder]:hover::-webkit-input-placeholder { color: rgba(255,255,255,.4); }
-[placeholder]:focus::-webkit-input-placeholder { color: transparent; }
-
-[placeholder]::-moz-placeholder { color: rgba(255,255,255,.8); }
-[placeholder]:hover::-moz-placeholder { color: rgba(255,255,255,.4); }
-[placeholder]:focus::-moz-placeholder { color: transparent; }
-
-[placeholder]:-ms-input-placeholder { color: rgba(255,255,255,.8); }
-[placeholder]:hover:-ms-input-placeholder { color: rgba(255,255,255,.4); }
-[placeholder]:focus:-ms-input-placeholder { color: transparent; }
-
-form {
-  width: 400px;
-  margin: 50px auto;
+/* Styling for WebKit input placeholder */
+[placeholder]::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
-  display: block;
-  width: 50vw;
-  margin: 0 0 20px;
-  padding: 8px 12px 10px 12px;
-  border: 1px solid rgba(0,0,0,.5);
-  background: rgba(0,0,0,.25);
+[placeholder]:hover::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.4);
 }
 
-textarea {
-  display: block;
-  width: 400px;
-  height: 150px;
-  margin: 0 0 20px;
-  padding: 8px 12px 10px 12px;
-  border: 1px solid rgba(0,0,0,.5);
-  background: rgba(0,0,0,.25);
+[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent;
 }
 
-input[type="submit"] {
-  display: block;
-  width: 150px;
-  margin: 0 0 20px;
-  padding: 8px 0 10px 0;
-  text-align: center;
-  border: 1px solid rgba(0,0,0,.5);
-  background: rgba(0,0,0,.25);
+/* Styling for Firefox input placeholder */
+[placeholder]::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-textarea:focus, input:focus {
-  color: white;
+[placeholder]:hover::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+[placeholder]:focus::-moz-placeholder {
+  color: transparent;
+}
+
+/* Styling for Edge/IE input placeholder */
+[placeholder]:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[placeholder]:hover:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+[placeholder]:focus:-ms-input-placeholder {
+  color: transparent;
 }

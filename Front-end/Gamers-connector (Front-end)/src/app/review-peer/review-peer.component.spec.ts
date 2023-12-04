@@ -14,12 +14,18 @@ describe('ReviewPeerComponent', () => {
   });
 
   beforeEach(() => {
+    // Create a component fixture for ReviewPeerComponent
     fixture = TestBed.createComponent(ReviewPeerComponent);
+    
+    // Get the component instance
     component = fixture.componentInstance;
+    
+    // Trigger the initial change detection
     fixture.detectChanges();
   });
 
   it('should create', () => {
+    // Assert that the component is created successfully
     expect(component).toBeTruthy();
   });
 });

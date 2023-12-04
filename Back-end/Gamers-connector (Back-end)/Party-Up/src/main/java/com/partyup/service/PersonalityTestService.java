@@ -26,6 +26,7 @@ public class PersonalityTestService {
         this.playerRepository = playerRepository;
     }
 
+    // Retrieves all the questions for the personality test.
     public List<QuestionDto> getAllQuestions() {
         List<Question> listOfQuestions = questionsRepository.findAll();
         List<QuestionDto> dtoList = new ArrayList<>();
@@ -38,6 +39,7 @@ public class PersonalityTestService {
         return dtoList;
     }
 
+    // Saves the answers of the user for the personality test.
     public void saveAnswersOfUser(List<AnswerDto> answerDtos, Player player) {
         List<Rate> rates = new ArrayList<>();
         for (AnswerDto dto : answerDtos) {

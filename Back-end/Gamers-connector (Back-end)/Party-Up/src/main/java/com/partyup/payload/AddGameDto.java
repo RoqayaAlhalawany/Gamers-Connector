@@ -1,8 +1,8 @@
 package com.partyup.payload;
 
 public class AddGameDto {
-    private String gameName;
-    private String handle;
+    private String gameName;  // The name of the game
+    private String handle;    // The handle associated with the game
 
     public String getGameName() {
         return gameName;

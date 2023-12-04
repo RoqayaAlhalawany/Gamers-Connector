@@ -6,11 +6,11 @@ describe('AcceptingOrRejectingTheRequestService', () => {
   let service: AcceptingOrRejectingTheRequestService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AcceptingOrRejectingTheRequestService);
+    TestBed.configureTestingModule({}); // Configuring the testing module
+    service = TestBed.inject(AcceptingOrRejectingTheRequestService); // Injecting the service
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTruthy(); // Checking if the service is created
   });
 });

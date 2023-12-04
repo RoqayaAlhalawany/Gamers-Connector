@@ -13,7 +13,7 @@ public class OwnProfileDto extends ProfileDto{
 	String discordTag;
 
 	Country country;
-	List<HandleDto> handles = new ArrayList<>();
+	List<HandleDto> handles = new ArrayList<>(); // List of handles associated with the player
 
 	public String getEmail() {
 		return email;

@@ -41,7 +41,7 @@ public class PeersService {
         this.questionsRepository = questionsRepository;
         this.mlModelService = mlModelService;
     }
-
+ // Retrieves a list of profile tokens for pending peer requests of the authenticated player.
     public List<ProfileToken> getRequests() throws UserNotAuthenticatedException {
         Player player = authService.authenticate();
         List<ProfileToken> profileTokens = new ArrayList<>();
@@ -55,6 +55,7 @@ public class PeersService {
         return profileTokens;
     }
 
+    // Sends a peer request from the authenticated player to another player.
     public String addPeer(String playerUsername)
             throws UserNotAuthenticatedException, PlayerNotFoundException {
         Player player = authService.authenticate();
@@ -67,6 +68,7 @@ public class PeersService {
         return "Peer Request is sent successfully";
     }
 
+    // Responds to a peer request from another player.
     public String respondPeerRequest(String playerUsername, String response)
             throws UserNotAuthenticatedException, PlayerNotFoundException, PeerRequestNotFoundException {
         Player player = authService.authenticate();
@@ -92,6 +94,7 @@ public class PeersService {
         return "Peer Responded Successfully";
     }
 
+    // Unpeers the authenticated player from another player.
     public String unpeer(String playerUsername)
             throws UserNotAuthenticatedException, PlayerNotFoundException {
         Player player = authService.authenticate();
@@ -107,6 +110,7 @@ public class PeersService {
         return "User is not a peer";
     }
 
+    // Finds suggested peers for the authenticated player based on the given game.
     public List<ProfileToken> findPeers(String gameName)
             throws UserNotAuthenticatedException, GameNotFoundException {
         Player player = authService.authenticate();
@@ -114,6 +118,7 @@ public class PeersService {
         return mlModelService.getSuggestedProfileTokens(player, game);
     }
 
+    // Retrieves a list of profile tokens for the peers of the authenticated player.
     public List<ProfileToken> myPeers()
             throws UserNotAuthenticatedException {
         Player player = authService.authenticate();
@@ -127,6 +132,7 @@ public class PeersService {
         return profileTokens;
     }
 
+    // Retrieves a list of random peer review questions.
     public List<QuestionDto> getPeerReviewQuestions() {
         List<Question> questions = questionsRepository.findAll();
         Collections.shuffle(questions);
@@ -141,6 +147,7 @@ public class PeersService {
         return questionDtos;
     }
 
+    // Reviews a peer by the authenticated player.
     public String reviewPeer(String playerUsername, List<AnswerDto> answers)
             throws UserNotAuthenticatedException, PlayerNotFoundException, PlayerAlreadyReviewedException, PlayerIsNotPeerException {
         Player player = authService.authenticate();

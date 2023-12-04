@@ -10,7 +10,7 @@ public class Role implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String name;
+    private String name;  // The name of the role
 
     public Long getId() {
         return id;

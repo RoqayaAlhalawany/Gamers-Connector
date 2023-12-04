@@ -8,6 +8,7 @@ import java.io.Serializable;
         @UniqueConstraint(columnNames = {"name"})
 })
 public class Game implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -16,18 +17,22 @@ public class Game implements Serializable {
     private String name;
 
     public Long getId() {
+        // Getter for id
         return id;
     }
 
     public void setId(Long id) {
+        // Setter for id
         this.id = id;
     }
 
     public String getName() {
+        // Getter for name
         return name;
     }
 
     public void setName(String name) {
+        // Setter for name
         this.name = name;
     }
 }

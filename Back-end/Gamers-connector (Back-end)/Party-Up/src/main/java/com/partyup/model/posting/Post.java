@@ -16,7 +16,9 @@ public class Post {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
+
 	private String text;
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<ContentData> contents;
 
@@ -65,6 +67,7 @@ public class Post {
 
 	@Override
 	public boolean equals(Object o) {
+		// Check if the current instance is equal to the other instance based on specific properties
 		if (o == this) return true;
 		if (o == null || this.getClass() != o.getClass()) return false;
 		Post other = (Post) o;
@@ -76,6 +79,7 @@ public class Post {
 
 	@Override
 	public int hashCode() {
+		// Generate a hash code based on the properties of the instance
 		return super.hashCode();
 	}
 }

@@ -1,45 +1,55 @@
+/* Set the background color of the body */
 body {
-  background: rgb(99, 39, 120)
+  background: rgb(99, 39, 120);
 }
 
+/* Remove box shadow and change border color when a form control is focused */
 .form-control:focus {
   box-shadow: none;
-  border-color: #BA68C8
+  border-color: #BA68C8;
 }
 
+/* Styling for the profile button */
 .profile-button {
   background: rgb(84, 81, 255);
   box-shadow: none;
   border: none;
 }
 
+/* Hover effect for the profile button */
 .profile-button:hover {
   background: #2b2a9a;
   box-shadow: none;
 }
 
+/* Hover effect for the back button */
 .back:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
+/* Styling for labels */
 .labels {
   font-size: 15px;
   color: white;
 }
 
+/* Styling for the form */
 form {
   width: 90vw;
   margin: 50px auto;
 }
 
+/* Set the width of input fields to 100% */
 input {
   width: 100%;
 }
 
+/* Hide the file input element */
 input[type="file"] {
   display: none;
 }
 
+/* Styling for the file label */
 .fileLabel {
   width: 170px;
   margin: 0 0 20px;
@@ -51,16 +61,19 @@ input[type="file"] {
   transition: background-color 0.2s;
 }
 
+/* Hover effect for the file label */
 .fileLabel:hover {
   cursor: pointer;
   background-color: #24247e;
 }
 
+/* Styling for images */
 img {
   border-radius: 50%;
   margin-bottom: 30px;
 }
 
+/* Styling for buttons */
 .btn {
   margin-bottom: 10px;
 }

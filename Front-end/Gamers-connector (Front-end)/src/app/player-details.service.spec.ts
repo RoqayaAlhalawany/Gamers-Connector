@@ -1,16 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlayerDetailsService } from './player-details.service';
+import { FindPeersService } from './find-peers.service';
 
-describe('PlayerDetailsService', () => {
-  let service: PlayerDetailsService;
+describe('FindPeersService', () => {
+  let service: FindPeersService;
 
   beforeEach(() => {
+    // Configure the testing module
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PlayerDetailsService);
+
+    // Inject the FindPeersService
+    service = TestBed.inject(FindPeersService);
   });
 
   it('should be created', () => {
+    // Check if the FindPeersService is truthy
     expect(service).toBeTruthy();
   });
 });

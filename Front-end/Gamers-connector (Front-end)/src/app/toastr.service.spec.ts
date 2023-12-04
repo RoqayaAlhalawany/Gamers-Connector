@@ -11,6 +11,7 @@ describe('ToastrService', () => {
   });
 
   it('should be created', () => {
+    // Verify that the service instance is created
     expect(service).toBeTruthy();
   });
 });

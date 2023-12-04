@@ -49,6 +49,7 @@ public class PlayerProfileService {
         this.authService = authService;
     }
 
+    // Updates the profile picture of the authenticated player.
     public void updateProfilePic(MultipartFile picture, UriComponentsBuilder uriBuilder)
             throws UploadFailedException {
         try {
@@ -68,6 +69,7 @@ public class PlayerProfileService {
         }
     }
 
+    // Retrieves the profile of the authenticated player.
     public OwnProfileDto getPlayerProfile() throws UserNotAuthenticatedException {
         Player player = authService.authenticate();
         OwnProfileDto ownProfileDto = new OwnProfileDto();
@@ -84,6 +86,7 @@ public class PlayerProfileService {
         return ownProfileDto;
     }
 
+    // Edits the profile of the authenticated player.
     public String editProfile(SignUpDto signUpDto) throws UserNotAuthenticatedException {
         Player player = authService.authenticate();
         if (playerRepository.findAllByEmail(signUpDto.getEmail()).size() > 1) {
@@ -106,6 +109,7 @@ public class PlayerProfileService {
         return "Profile Edited Successfully";
     }
 
+    // Retrieves the profile of another player.
     public OtherProfileDto getOtherPlayerProfile(String playerUsername)
             throws PlayerNotFoundException, UserNotAuthenticatedException {
 

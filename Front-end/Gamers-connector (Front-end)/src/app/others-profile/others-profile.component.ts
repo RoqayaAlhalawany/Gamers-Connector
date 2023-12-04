@@ -17,7 +17,8 @@ import {GetUploadedImageService} from "../get-uploaded-image.service";
   styleUrls: ['./others-profile.component.scss']
 })
 export class OthersProfileComponent implements OnInit {
-
+  
+  // Properties
   otherPlayerDetails : GetOthersDetailsPayload
   userName: string
   url : string
@@ -29,13 +30,14 @@ export class OthersProfileComponent implements OnInit {
   imgSrc: string;
 
 
-
+// Constructor
   constructor(private pdService : PlayerDetailsService, private getOtherProfile : GetOthersProfileService,
               private sendPeerRequestService : SendPeerRequestService, private popupNotification: ToastrService,
               private getPeerRequests : GetPeerRequestsAsNotificationService,private getUploadedPhoto : GetUploadedImageService,
               private acceptOrDeclineService : AcceptingOrRejectingTheRequestService, private unPeerService : UnpeerService,
               private router:Router , private actvRoute : ActivatedRoute) {
 
+   // Initialize properties
     this.otherPlayerDetails = {
       firstName : '',
       lastName : '',
@@ -64,6 +66,7 @@ export class OthersProfileComponent implements OnInit {
     this.imgSrc = '';
   }
 
+  // OnInit lifecycle hook
   ngOnInit(): void {
     this.userName = this.actvRoute.snapshot.params['username'];
     this.pdService.getPlayerDetails().subscribe(data =>{
@@ -78,6 +81,7 @@ export class OthersProfileComponent implements OnInit {
 
   }
 
+  // Method to get details of the other player
   getothersDetails(){
     this.getOtherProfile.getOthersDetails(this.userName).subscribe(data =>{
       this.otherPlayerDetails = data;
@@ -101,6 +105,7 @@ export class OthersProfileComponent implements OnInit {
     })
   }
 
+   // Method to send a peer request
   sendPeerRequest(){
       this.sendPeerRequestService.sendPeerRequest(this.userName).subscribe(data =>{
         this.getothersDetails();

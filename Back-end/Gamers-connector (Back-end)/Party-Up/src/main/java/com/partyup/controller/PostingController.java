@@ -40,6 +40,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/api/post")
 @Slf4j
 public class PostingController {
+
 	@Autowired
 	private PostingService postingService;
 	@Autowired
@@ -53,6 +54,7 @@ public class PostingController {
 	@Autowired
 	private PostModelAssembler postModelAssembler;
 
+	// Handles the request to upload a new post. It takes a PostUploadDto containing the post data and a UriComponentsBuilder for building the response URI.
 	@PostMapping("/upload")
 	public ResponseEntity<UploadResponse> postPost(@ModelAttribute PostUploadDto post, UriComponentsBuilder uriComponentsBuilder)
 			throws UploadFailedException, UsernameNotFoundException {
@@ -75,6 +77,7 @@ public class PostingController {
 				.body(new UploadResponse("Post uploaded successfully"));
 	}
 
+	// Handles the request to get a specific post based on the provided ID. It returns a PostModel containing the post information.
 	@GetMapping("/{id}")
 	public PostModel getPostOf(@PathVariable("id") String id) throws PostNotFoundException {
 		Post post = postingService.getPostOfId(id);
@@ -84,6 +87,7 @@ public class PostingController {
 		return postModel;
 	}
 
+	// Handles the request to get the own posts of the authenticated user. It takes a Pageable object for pagination and returns a PagedModel of PostModel.
 	@GetMapping("/profile")
 	public PagedModel<PostModel> getOwnPosts(@PageableDefault(page = 0, size = 10) Pageable page) throws UsernameNotFoundException {
 		String username = getUserName();
@@ -94,6 +98,7 @@ public class PostingController {
 		return pagedModelAssembler.toModel(posts, postModelAssembler);
 	}
 
+	// Handles the request to get the feed of posts for the authenticated user. It takes a Pageable object for pagination and returns a PagedModel of PostModel.
 	@GetMapping("/feed")
 	public PagedModel<PostModel> getFeed(@PageableDefault(page = 0, size = 10) Pageable page) throws UsernameNotFoundException {
 		String username = getUserName();

@@ -11,6 +11,7 @@ describe('UnpeerService', () => {
   });
 
   it('should be created', () => {
+    // Assert that the service instance is created
     expect(service).toBeTruthy();
   });
 });

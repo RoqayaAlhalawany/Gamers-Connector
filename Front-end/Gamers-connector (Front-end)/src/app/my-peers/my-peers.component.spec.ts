@@ -14,12 +14,14 @@ describe('MyPeersComponent', () => {
   });
 
   beforeEach(() => {
+    // Create a fixture and component instance for testing
     fixture = TestBed.createComponent(MyPeersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
+    // Expect the component to be truthy (i.e., not null or undefined)
     expect(component).toBeTruthy();
   });
 });

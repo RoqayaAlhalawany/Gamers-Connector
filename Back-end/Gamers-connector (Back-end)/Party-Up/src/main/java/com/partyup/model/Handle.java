@@ -17,26 +17,32 @@ public class Handle implements Serializable {
     private String handleName;
 
     public Long getId() {
+        // Getter for id
         return id;
     }
 
     public void setId(Long id) {
+        // Setter for id
         this.id = id;
     }
 
     public Game getGame() {
+        // Getter for game
         return game;
     }
 
     public void setGame(Game game) {
+        // Setter for game
         this.game = game;
     }
 
     public String getHandleName() {
+        // Getter for handleName
         return handleName;
     }
 
     public void setHandleName(String handle) {
+        // Setter for handleName
         this.handleName = handle;
     }
 }

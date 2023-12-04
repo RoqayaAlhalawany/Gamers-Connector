@@ -18,11 +18,13 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    // Handles the authentication of a user based on the provided LoginDto.
     @PostMapping("/signin")
     public ResponseEntity<LoginResponseDto> authenticateUser(@RequestBody LoginDto loginDto) {
         return ResponseEntity.ok(authService.signin(loginDto));
     }
 
+    // Handles the registration of a new user based on the provided SignUpDto.
     @PostMapping("/signup")
     public ResponseEntity<String> registerUser(@RequestBody SignUpDto signUpDto) {
         return authService.register(signUpDto);

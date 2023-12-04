@@ -8,18 +8,18 @@ describe('PersonalityTestComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PersonalityTestComponent ]
+      declarations: [ PersonalityTestComponent ]  // Declare the component being tested
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonalityTestComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture = TestBed.createComponent(PersonalityTestComponent);  // Create a component fixture for testing
+    component = fixture.componentInstance;  // Get the component instance for testing
+    fixture.detectChanges();  // Trigger change detection
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy();  // Check if the component instance is truthy (i.e., not null or undefined)
   });
 });

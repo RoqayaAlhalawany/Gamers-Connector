@@ -1,182 +1,96 @@
+/* Set the background color of the body */
 body {
-  background-color: #000000
+  background-color: #000000;
 }
 
+/* Add padding to elements with the 'padding' class */
 .padding {
   padding: 3rem !important;
-  margin-left: 200px
+  margin-left: 200px;
 }
 
-.card-img-top{
-  height:300px;
+/* Set the height of the card image */
+.card-img-top {
+  height: 300px;
 }
 
+/* Styling for cards with no border */
 .card-no-border .card {
   border-color: #d7dfe3;
   border-radius: 4px;
   margin-bottom: 30px;
-  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* Styling for the card body */
 .card-body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 1.25rem
+  padding: 1.25rem;
 }
 
+/* Styling for the profile image */
 .pro-img {
   margin-top: 80px;
   margin-bottom: 30px;
 }
 
+/* Styling for the image inside the 'little-profile' class */
 .little-profile .pro-img img {
   width: 100%;
   height: 100%;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 100%;
 }
 
+/* Remove bottom margin from elements with the 'm-b-0' class */
 html body .m-b-0 {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
-h3 {
-  line-height: 40px;
-  font-size: 21px;
-  padding-bottom: 20px;
-}
-
-.btn-rounded.btn-md {
-  padding: 12px 35px;
-  font-size: 16px
-}
-
-html body .m-t-10 {
-  margin-top: 10px
-}
-
-.btn-primary,
-.btn-primary.disabled {
-  background: #7460ee;
-  border: 1px solid #7460ee;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-  box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
-  transition: 0.2s ease-in
-}
-
-.btn-rounded {
-  border-radius: 60px;
-  padding: 7px 18px
-}
-
-.m-t-20 {
-  margin-top: 20px
-}
-
-.text-center {
-  text-align: center !important
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #455a64;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem
-}body {
-   background-color: #000000
- }
-
-.padding {
-  padding: 3rem !important;
-  margin-left: 200px
-}
-
-.card-img-top{
-  height:300px;
-}
-
-.card-no-border .card {
-  border-color: #d7dfe3;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
-}
-
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 1.25rem
-}
-
-.pro-img {
-  margin-top: -80px;
-  margin-bottom: 20px
-}
-
-.little-profile .pro-img img {
-  width: 200px;
-  height: 200px;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 100%
-}
-
-html body .m-b-0 {
-  margin-bottom: 0px
-}
-
+/* Styling for heading elements (h3) */
 h3 {
   line-height: 30px;
-  font-size: 21px
+  font-size: 21px;
 }
 
+/* Styling for buttons with the 'btn-rounded' and 'btn-md' classes */
 .btn-rounded.btn-md {
   padding: 12px 35px;
-  font-size: 16px
+  font-size: 16px;
 }
 
+/* Add top margin to elements with the 'm-t-10' class */
 html body .m-t-10 {
-  margin-top: 10px
+  margin-top: 10px;
 }
 
+/* Styling for primary buttons */
 .btn-primary,
 .btn-primary.disabled {
   background: #7460ee;
   border: 1px solid #7460ee;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
   box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
-  transition: 0.2s ease-in
+  transition: 0.2s ease-in;
 }
 
+/* Styling for rounded buttons */
 .btn-rounded {
   border-radius: 60px;
-  padding: 7px 18px
+  padding: 7px 18px;
 }
 
+/* Add top margin to elements with the 'm-t-20' class */
 .m-t-20 {
-  margin-top: 20px
+  margin-top: 20px;
 }
 
+/* Center align text */
 .text-center {
-  text-align: center !important
+  text-align: center !important;
 }
 
+/* Styling for heading elements (h1, h2, h3, h4, h5, h6) */
 h1,
 h2,
 h3,
@@ -185,20 +99,20 @@ h5,
 h6 {
   color: #455a64;
   font-family: "Poppins", sans-serif;
-  font-weight: 400
+  font-weight: 400;
 }
 
+/* Styling for paragraph elements */
 p {
   margin-top: 0;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 
-
-
-// the second button for profile settings
+/* Second button for profile settings */
 
 $color: rgb(44, 54, 193);
 
+/* Styling for the second button */
 .secondButton {
   margin-left: 5px;
   display: inline-block;
@@ -212,38 +126,41 @@ $color: rgb(44, 54, 193);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $color;
-    border-radius: 10rem;
-    z-index: -2;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: darken($color, 15%);
-    transition: all .3s;
-    border-radius: 10rem;
-    z-index: -1;
-  }
-  &:hover {
-    color: #fff;
-    &:before {
-      width: 100%;
-    }
-  }
 }
 
+/* Styling for the pseudo-element after the second button */
+.secondButton:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color;
+  border-radius: 10rem;
+  z-index: -2;
+}
 
+/* Styling for the pseudo-element before the second button */
+.secondButton:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: darken($color, 15%);
+  transition: all .3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
 
+/* Styling for the second button on hover */
+.secondButton:hover {
+  color: #fff;
+}
 
-
+/* Styling for the pseudo-element before the second button on hover */
+.secondButton:hover:before {
+  width: 100%;
+}

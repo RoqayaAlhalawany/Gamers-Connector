@@ -46,12 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/auth/**").permitAll() // Allow access to certain endpoints without authentication
                 .antMatchers("/api/image/**").permitAll()
                 .antMatchers("/api/personalityTest/**").permitAll()
                 .antMatchers("/api/profile/{username}").permitAll()
                 .anyRequest()
-                .authenticated()
+                .authenticated() // Require authentication for all other requests
                 .and()
                 .addFilterBefore(
                         sessionFilter, UsernamePasswordAuthenticationFilter.class

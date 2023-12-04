@@ -1,12 +1,18 @@
+<!-- Container for the review form -->
 <div class="my-2 text-center container">
   <h1>Review Peer</h1>
   <h2>Please answer all questions below sincerely</h2>
-  <h3>Give your peer a rating from 1 ~ 5 for each question</h3>
+  <h3>Give them a rating from 1 ~ 5 for each question</h3>
   <div class="container tb-10">
+    <!-- Form for submitting the review answers -->
     <form (ngSubmit)="submitReviewAnswers()" [formGroup]="reviewAnswersForm">
+      
+      <!-- Loop over each question in listOfReviewQuestions -->
       <div class="my-2" *ngFor="let question of listOfReviewQuestions">
         <label>Q{{question.index}}: {{question.question}}</label>
         <br>
+        
+        <!-- Radio buttons for rating options -->
         <label>1:</label>
         <input type="radio" name="q{{question.index}}" value="1" class="mx-2"  formControlName='q{{question.index}}'>
         <label>2:</label>
@@ -18,6 +24,8 @@
         <label>5:</label>
         <input type="radio" name="q{{question.index}}" value="5" class="mx-2"  formControlName='q{{question.index}}'>
       </div>
+      
+      <!-- Submit button -->
       <button [disabled]="reviewAnswersForm.invalid" type="submit" class="btn btn-success x-2 my-2">Submit</button>
     </form>
   </div>

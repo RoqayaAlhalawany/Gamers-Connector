@@ -1,7 +1,7 @@
 package com.partyup.payload;
 
 public class GameDto {
-    String name;
+    String name; // The name of the game
 
     public GameDto() {
     }

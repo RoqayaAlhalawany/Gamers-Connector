@@ -35,6 +35,7 @@ public class PostingService {
 	@Autowired
 	private PlayerRepository playerRepository;
 
+	// Save a post for a user.
 	public Post savePostOfUser(PostUploadDto postUploadDto, Player player) {
 		Post post = postingMapper.map(postUploadDto, Post.class);
 		post.setPlayer(player);
@@ -42,6 +43,7 @@ public class PostingService {
 		return post;
 	}
 
+	// Get a post by its ID.
 	public Post getPostOfId(String id) throws PostNotFoundException {
 		Optional<Post> optionalPost = postRepository.findById(id);
 		if (optionalPost.isPresent()) {
@@ -50,11 +52,12 @@ public class PostingService {
 			throw new PostNotFoundException(id);
 		}
 	}
-
+  // Get a page of posts created by a specific user.
 	public Page<Post> getPostsOfUser(Player player, Pageable page) {
 		return postRepository.findAllByPlayerOrderByCreateAt(player, page);
 	}
 
+	// Get a page of posts related to a specific user, based on the users they follow.
 	public Page<Post> getPostsRelatedToUser(Player player, Pageable page) {
 		List<FollowRequest> followee = followService.findAllByFollowerId(player.getId());
 		List<Long> followeeIds = new ArrayList<>(followee.size());
@@ -67,6 +70,8 @@ public class PostingService {
 
 @Configuration
 @Slf4j
+
+// Create a ModelMapper bean for mapping PostUploadDto to Post.
 class configPostingService {
 	@Bean
 	ModelMapper postingMapper() {

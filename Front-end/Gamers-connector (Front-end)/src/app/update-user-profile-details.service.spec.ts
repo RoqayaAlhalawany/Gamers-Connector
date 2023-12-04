@@ -6,11 +6,13 @@ describe('UpdateUserProfileDetailsService', () => {
   let service: UpdateUserProfileDetailsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(UpdateUserProfileDetailsService);
+    // Configure the testing module and inject the UpdateUserProfileDetailsService
+    TestBed.configureTestingModule({}); // Configuration for the testing module
+    service = TestBed.inject(UpdateUserProfileDetailsService); // Inject the UpdateUserProfileDetailsService
   });
 
   it('should be created', () => {
+    // Verify that the service is created
     expect(service).toBeTruthy();
   });
 });

@@ -8,11 +8,13 @@ import java.util.Date;
 import java.util.List;
 
 public class PostModel extends RepresentationModel<PostModel> {
-	private String text;
-	private List<ContentData> contents;
-	private Date createdAt;
+	private String text; // Text content of the post
 
-	private ProfileToken owner;
+	private List<ContentData> contents; // List of content data associated with the post
+
+	private Date createdAt; // Date and time of post creation
+
+	private ProfileToken owner; // Owner of the post
 
 	public PostModel(Post post, ProfileToken owner) {
 		this.text = post.getText();

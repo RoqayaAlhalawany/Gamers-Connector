@@ -10,8 +10,10 @@ public class Question implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    // The question string
     private String questionString;
 
+    // The review question string
     private String reviewQuestionString;
 
     public Long getId() {

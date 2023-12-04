@@ -6,9 +6,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public class PostUploadDto {
-	private String text;
-	private List<MultipartFile> files;
-	private List<ContentData> contents;
+	private String text; // Text content of the post
+	private List<MultipartFile> files; // List of files associated with the post
+	private List<ContentData> contents; // List of content data associated with the post
 	public List<ContentData> getContents() { return contents; }
 	public void setContents(List<ContentData> contents) { this.contents = contents; }
 

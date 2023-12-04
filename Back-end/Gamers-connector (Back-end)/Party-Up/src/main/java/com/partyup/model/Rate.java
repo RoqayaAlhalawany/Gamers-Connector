@@ -10,11 +10,11 @@ public class Rate implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private Long questionID;
+    private Long questionID;  // The ID of the question being rated
 
-    private Long playerID;
+    private Long playerID;  // The ID of the player giving the rating
 
-    private double rate;
+    private double rate;  // The rating value
 
     public Long getId() {
         return id;

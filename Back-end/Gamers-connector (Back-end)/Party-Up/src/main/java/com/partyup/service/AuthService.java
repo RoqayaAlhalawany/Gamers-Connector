@@ -59,6 +59,8 @@ public class AuthService {
     public AuthService() {
     }
 
+    // Authenticates a user with the provided login credentials.
+    // If the authentication is successful, registers the session and returns the session ID.
     public LoginResponseDto signin(LoginDto loginDto) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -70,6 +72,7 @@ public class AuthService {
         return response;
     }
 
+    //Registers a new user with the provided sign-up details.
     public ResponseEntity<String> register(SignUpDto signUpDto) {
         if (playerRepository.existsByUsername(signUpDto.getUsername())) {
             return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
@@ -102,6 +105,9 @@ public class AuthService {
         return new ResponseEntity<>("User Registered Successfully", HttpStatus.OK);
     }
 
+    // Retrieves the currently authenticated player.
+    // Throws UserNotAuthenticatedException if the user is not authenticated.
+
     public Player authenticate() throws UserNotAuthenticatedException {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!auth.isAuthenticated()) {
@@ -112,6 +118,7 @@ public class AuthService {
         return player;
     }
 
+    //Retrieves the username from the authentication object.
     private String getUsername(Authentication authentication) {
         Object userSessionData = authentication.getPrincipal();
         String username;

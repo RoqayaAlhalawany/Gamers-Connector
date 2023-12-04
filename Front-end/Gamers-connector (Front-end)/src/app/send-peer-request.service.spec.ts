@@ -6,11 +6,11 @@ describe('SendPeerRequestService', () => {
   let service: SendPeerRequestService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(SendPeerRequestService);
+    TestBed.configureTestingModule({}); // Configure the TestBed module
+    service = TestBed.inject(SendPeerRequestService); // Inject the SendPeerRequestService
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTruthy(); // Verify that the service is created
   });
 });

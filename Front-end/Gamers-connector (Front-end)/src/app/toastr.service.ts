@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-declare let toastr:any
+declare let toastr: any;
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +8,23 @@ export class ToastrService {
 
   constructor() { }
 
-  success(message : string){
+  success(message: string) {
+    // Display a success toast with the given message
     toastr.success(message);
   }
-  info(){
+
+  info() {
+    // Display an info toast
     toastr.info();
   }
-  warning(){
+
+  warning() {
+    // Display a warning toast
     toastr.warning();
   }
-  error(){
+
+  error() {
+    // Display an error toast
     toastr.error();
   }
 }

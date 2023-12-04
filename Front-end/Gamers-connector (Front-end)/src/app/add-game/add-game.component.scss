@@ -1,24 +1,24 @@
 .container {
-	max-width: 1000px;
-	margin-right:auto;
-	margin-left:auto;
-	margin-top: 20px;
+  max-width: 1000px; /* Sets the maximum width of the container */
+  margin-right: auto; /* Auto margin for right */
+  margin-left: auto; /* Auto margin for left */
+  margin-top: 20px; /* Margin on top */
 }
 
 input {
-  width: 50%;
-  display: block;
-  margin: auto;
+  width: 50%; /* Sets the width of the input field to 50% */
+  display: block; /* Display as a block element */
+  margin: auto; /* Center align the input field */
 }
 
 td, th {
-  text-align: center;
-  width: 50%;
+  text-align: center; /* Centers the text in table cells */
+  width: 50%; /* Sets the width of table cells to 50% */
 }
 
 th {
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: bold; /* Applies bold font weight to table headers */
+  font-size: 20px; /* Sets the font size of table headers to 20px */
 }
 
-//second table data
+// Second table data

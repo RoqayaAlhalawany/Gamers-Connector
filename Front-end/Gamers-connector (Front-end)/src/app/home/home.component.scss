@@ -1,17 +1,21 @@
-.homeContent{
+/* Position and spacing for the home content */
+.homeContent {
   position: relative;
-  top: 20vh;
-  margin-bottom: 32.5vh;
-}
-.home-fonts-specifications{
-  font-family: 'Cinzel', serif;
-  font-family: 'Cinzel Decorative', cursive;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  font-weight: bold;
+  top: 20vh; /* Vertical spacing from the top of the viewport */
+  margin-bottom: 32.5vh; /* Vertical spacing at the bottom of the container */
 }
 
+/* Font and style specifications for the home content */
+.home-fonts-specifications {
+  font-family: 'Cinzel', serif; /* Specify the font family as Cinzel */
+  font-family: 'Cinzel Decorative', cursive; /* Specify the font family as Cinzel Decorative */
+  font-family: 'Roboto', sans-serif; /* Specify the font family as Roboto */
+  color: white; /* Set the text color to white */
+  font-weight: bold; /* Set the font weight to bold */
+}
 
-// .content{
-//     font-family: 'Cinzel', serif;
-// }
+/* 
+.content {
+    font-family: 'Cinzel', serif;
+}
+*/
